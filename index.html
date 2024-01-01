@@ -29,8 +29,8 @@
                         <button class="screen__btn"></button>
                     </div>
                     <div class="pokedex__screen">
-                        <h1>Pokedex</h1>
-                        <p class="version__number">v1.0</p>
+                        <h1 id="pokedex-screen" class="screen__off">Pokedex</h1>
+                        <p class="version__number screen__off" id="screen-sub">v1.0</p>
                     </div>
                     <div class="belowscreen__wrapper">
                         <button class="screen__btn bottom__btn"></button>
@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div class="pokedex__three">
-                    <button class="roundblack__btn"></button>
+                    <button class="roundblack__btn" id="power-btn">Power</button>
                     <button class="flatred__btn flat__btn"></button>
                     <button class="flatblue__btn flat__btn"></button>
                 </div>
@@ -46,7 +46,7 @@
                     <button class="tiny__btn"></button>
                     <button class="tiny__btn"></button>
                     <div class="green__screen">
-
+                        <input type="text" id="pokemon-search" placeholder="Search...">
                     </div>
                     <div class="cross__control">
 
@@ -64,7 +64,7 @@
             </div>
             <div class="pokedex__lidmain">
                 <div class="pokedex__lidscreen">
-                    <h2 class="pokedex__namedisplay">Eevee</h2>
+                    <h2 class="pokedex__namedisplay screen__off" id="pokemon-name">Eevee</h2>
                 </div>
                 <div class="blue__buttongrid">
                     <div class="blue__square"></div>
@@ -91,16 +91,16 @@
                 </div>
                 <div class="blacksquare__area">
                     <div class="blacksquare">
-                        <p class="pokemon__id">01</p>
+                        <p class="pokemon__id screen__off" id="screen-num">01</p>
                     </div>
                     <div class="blacksquare">
-                        <p class="pokemon__type">Fire</p>
+                        <p class="pokemon__type screen__off" id="screen-type">Fire</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div id="output"></div>
-<main src="main.js"></main>
+<script src="main.js"></script>
 </body>
 </html>

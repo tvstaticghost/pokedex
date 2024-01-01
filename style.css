@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&family=Open+Sans&family=Pixelify+Sans:wght@400;500;700&family=Public+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Lexend:wght@400;700&family=Open+Sans&family=Pixelify+Sans:wght@400;500;700&family=Public+Sans:wght@400;700&display=swap');
 
 * {
     padding: 0;
@@ -14,6 +14,12 @@
     --green: green;
     --white: white;
     --black: black;
+
+    --font: 'DotGothic16', sans-serif;
+}
+
+body {
+    font-family: var(--font);
 }
 
 .pokedex__wrapper {
@@ -128,7 +134,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: 'Pixelify Sans', sans-serif;
     border-radius: 10px;
 }
 
@@ -153,13 +158,23 @@ h1 {
     padding: 1rem 2rem;;
 }
 
+.pokedex__three {
+    margin-top: 0.7rem;
+}
+
 .roundblack__btn {
-    padding: 1.2rem;
+    padding: 0.3rem;
+    height: 3rem;
     border-radius: 50%;
     background-color: var(--black);
     border: 2px solid var(--black);
     margin-right: 1rem;
     margin-left: 1.1rem;
+    color: var(--white);
+}
+
+.roundblack__btn:hover {
+    cursor: pointer;
 }
 
 .flat__btn {
@@ -197,6 +212,24 @@ h1 {
     height: 4rem;
     width: 10rem; 
     background-color: rgb(2, 114, 2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    background-color: rgb(2, 114, 2);
+    width: 95%;
+    height: 95%;
+    font-size: 1.3rem;
+    border: none;
+    outline: none;
+    padding-left: 5px;
+    font-family: var(--font);
+}
+
+input:focus {
+    outline: none;
 }
 
 .cross__control {
@@ -223,7 +256,7 @@ h1 {
 .pokedex__middle {
     background-color: var(--red);
     width: 3rem;
-    height: 38rem;
+    height: 40rem;
     margin-top: 2rem;
     box-shadow: inset 5px 0 10px var(--black);
 }
@@ -240,12 +273,11 @@ h1 {
     height: 5rem;
     margin-top: 4rem;
     border-top: 7px solid var(--red);
-    border-right: 7px solid var(--red);
 }
 
 .pokedex__lidmain {
     width: 20rem;
-    height: 30.7rem;
+    height: 33rem;
     background-color: var(--dark-red);
     border-bottom: 7px solid var(--red);
     border-right: 7px solid var(--red);
@@ -263,7 +295,6 @@ h1 {
 .pokedex__namedisplay {
     color: var(--white);
     font-size: 3rem;
-    font-family: 'Pixelify Sans', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -333,7 +364,6 @@ h1 {
     background-color: var(--black);
     color: var(--white);
     font-size: 2rem;
-    font-family: 'Pixelify Sans', sans-serif;
     padding: 0.2rem 1rem;
     width: 7.5rem;
     display: flex;
@@ -341,16 +371,23 @@ h1 {
     align-items: center;
 }
 
-.pokemon__id, .pokemon__type {
-    animation: expand 2s ease-in-out;
+.animation__add {
+    animation: expand 1s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.screen__off {
+    opacity: 0;
 }
 
 @keyframes expand {
     0% {
         scale: 0.1;
+        opacity: 0;
     }
 
     100% {
         scale: 1;
+        opacity: 1;
     }
 }
