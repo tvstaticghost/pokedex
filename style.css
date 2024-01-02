@@ -143,6 +143,7 @@ h1 {
 
 .version__number {
     font-size: 1.3rem;
+    align-self: flex-end;
 }
 
 .bottom__btn {
@@ -288,13 +289,14 @@ input:focus {
     max-width: 85%;
     background-color: var(--black);
     margin: 0 auto;
-    padding: 1rem;
+    padding: 2rem;
     margin-top: 3rem;
 }
 
 .pokedex__namedisplay {
     color: var(--white);
-    font-size: 3rem;
+    font-size: 1.2rem;
+    padding: 0.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -378,6 +380,11 @@ input:focus {
 
 .screen__off {
     opacity: 0;
+}
+
+.image__sizing {
+    position: absolute;
+    width: 15rem;
 }
 
 @keyframes expand {
