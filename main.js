@@ -7,6 +7,17 @@ const pokemon = {
     description: ''
 };
 
+const pokemonPictures = {
+    picture1: '',
+    picture2: '',
+    picture3: '',
+    picture4: '',
+    picture5: '',
+    picture6: '',
+    picture7: '',
+    picture8: '',
+}
+
 function runApi(index) {
 
     const apiURL = `https://pokeapi.co/api/v2/pokemon/${index}`;
@@ -16,6 +27,7 @@ function runApi(index) {
     fetch(apiURL)
         .then(response => response.json())
         .then(data => {
+
             pokemon.picture = data.sprites.front_default;
             pokemon.name = data.name;
             pokemon.id = data.id;
@@ -31,9 +43,65 @@ function runApi(index) {
                 pokemon.type = 'Unknown';
             }
 
+            if (data.sprites.front_default !== null) {
+                pokemonPictures.picture1 = data.sprites.front_default;
+            }
+            else {
+                pokemonPictures.picture1 = '';
+            }
+
+            if (data.sprites.back_default !== null) {
+                pokemonPictures.picture2 = data.sprites.back_default;
+            }
+            else {
+                pokemonPictures.picture2 = '';
+            }
+
+            if (data.sprites.front_female !== null) {
+                pokemonPictures.picture3 = data.sprites.front_female;
+            }
+            else {
+                pokemonPictures.picture3 = '';
+            }
+
+            if (data.sprites.back_female !== null) {
+                pokemonPictures.picture4 = data.sprites.back_female;
+            }
+            else {
+                pokemonPictures.picture4 = '';
+            }
+
+            if (data.sprites.front_shiny !== null) {
+                pokemonPictures.picture5 = data.sprites.front_shiny;
+            }
+            else {
+                pokemonPictures.picture5 = '';
+            }
+
+            if (data.sprites.back_shiny !== null) {
+                pokemonPictures.picture6 = data.sprites.back_shiny;
+            }
+            else {
+                pokemonPictures.picture6 = '';
+            }
+
+            if (data.sprites.front_shiny_female !== null) {
+                pokemonPictures.picture7 = data.sprites.front_shiny_female;
+            }
+            else {
+                pokemonPictures.picture7 = '';
+            }
+
+            if (data.sprites.back_shiny_female !== null) {
+                pokemonPictures.picture8 = data.sprites.back_shiny_female;
+            }
+            else {
+                pokemonPictures.picture8 = '';
+            }
+
             displayInfo();
             renderPokemonImage();
-
+            addOtherImages();
         })
 
         fetch(locationURL)
@@ -145,6 +213,43 @@ function renderPokemonImage() {
     pokeImage.src = pokemon.picture;
     pokeImage.classList.add('animation__add');
     pokeImage.classList.add('image__sizing');
+}
+
+function addOtherImages() {
+    const blueBoxes = document.getElementsByClassName('blue__square');
+    let currIndex = 0;
+    let boxNumber = 1;
+    const screenImage = document.getElementById('poke-image');
+
+    let pictureArray = [
+        pokemonPictures.picture1,
+        pokemonPictures.picture2,
+        pokemonPictures.picture3,
+        pokemonPictures.picture4,
+        pokemonPictures.picture5,
+        pokemonPictures.picture6,
+        pokemonPictures.picture7,
+        pokemonPictures.picture8
+    ];
+
+    for (let i = 0; i < pictureArray.length; i++) {
+        if (pictureArray[i] !== '') {
+            currIndex++;
+        }
+    }
+
+    pictureArray = pictureArray.filter(item => item !== '');
+
+    for (let i = 0; i < currIndex; i++) {
+        blueBoxes[i].innerHTML = boxNumber;
+        blueBoxes[i].addEventListener('click', () => {
+            screenImage.src = pictureArray[i];
+        });
+        boxNumber++;
+    }
+
+    console.log(pictureArray.length);
+    console.log(typeof pictureArray[0]);
 }
 
 function powerOff() {
