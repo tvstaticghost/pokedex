@@ -386,6 +386,11 @@ input:focus {
     animation-fill-mode: forwards;
 }
 
+.otheranimation__add {
+    animation: fadein 2s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
 .screen__off {
     opacity: 0;
 }
@@ -404,5 +409,14 @@ input:focus {
     100% {
         scale: 1;
         opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    0% {
+        color: dodgerblue;
+    }
+    100% {
+        color: black;
     }
 }

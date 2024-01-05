@@ -242,14 +242,12 @@ function addOtherImages() {
 
     for (let i = 0; i < currIndex; i++) {
         blueBoxes[i].innerHTML = boxNumber;
+        blueBoxes[i].classList.add('otheranimation__add');
         blueBoxes[i].addEventListener('click', () => {
             screenImage.src = pictureArray[i];
         });
         boxNumber++;
     }
-
-    console.log(pictureArray.length);
-    console.log(typeof pictureArray[0]);
 }
 
 function powerOff() {
@@ -267,6 +265,13 @@ function powerOff() {
     }
 
     screenArray[screenArray.length - 1].style.display = 'none';
+
+    const blueBoxes = document.getElementsByClassName('blue__square');
+
+    for (let i = 0; i < blueBoxes.length; i++) {
+        blueBoxes[i].replaceWith(blueBoxes[i].cloneNode(true));
+        blueBoxes[i].innerHTML = '';
+    }
 }
 
 const searchBtn = document.getElementById('search-btn');
@@ -290,6 +295,16 @@ function clearSearch() {
         document.getElementById('screen-type'),
         document.getElementById('pokemon-name')
     ];
+
+    const blueBoxes = document.getElementsByClassName('blue__square');
+
+    for (let i = 0; i < blueBoxes.length; i++) {
+        blueBoxes[i].replaceWith(blueBoxes[i].cloneNode(true));
+    }
+
+    for (let i = 0; i < blueBoxes.length; i++) {
+        blueBoxes[i].innerHTML = '';
+    }
 
     for (let i = 0; i < screenArray.length; i++) {
         screenArray[i].classList.add('screen__off');
