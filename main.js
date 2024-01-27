@@ -104,6 +104,11 @@ function runApi(index) {
             addOtherImages();
         })
 
+        .catch(error => {
+            document.getElementById('pokedex-screen').style.color = 'white';
+            document.getElementById('pokedex-screen').textContent = 'Invalid';
+        })
+
         fetch(locationURL)
         .then(response => response.json())
         .then(data => {
@@ -149,6 +154,8 @@ function toggleScreen() {
     ];
 
     document.getElementById('pokedex-screen').style.color = 'var(--white)';
+    document.getElementById('pokedex-screen').textContent = 'Pokedex';
+    document.getElementById('screen-sub').textContent = 'v1.0';
 
     if (isOn) {
         for (let i = 0; i < screenArray.length; i++) {
@@ -283,7 +290,7 @@ function search() {
 
     clearSearch();
     if (isOn) {
-        runApi(pokeSearch);
+        runApi(pokeSearch.toLowerCase());
     }
 }
 

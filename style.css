@@ -19,7 +19,12 @@
 }
 
 body {
+    background-color: #201f1f;
     font-family: var(--font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
 }
 
 .pokedex__wrapper {
@@ -319,6 +324,10 @@ input:focus {
     align-items: center;
 }
 
+.blue__square:hover {
+    cursor: pointer
+}
+
 .pokedex__lidflatbtns {
     display: flex;
     justify-content: flex-end;
@@ -356,6 +365,13 @@ input:focus {
     border: 2px solid var(--yellow);
     background-color: var(--yellow);
     align-self: flex-end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.yellow__circle:hover {
+    cursor: pointer;
 }
 
 .blacksquare__area {
